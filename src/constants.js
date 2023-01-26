@@ -1,52 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+export const IMG_CDN_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-/*
-   Header
-    - Logo image
-    - Menu/Nav items
-    - Cart
-   Body
-    - Search bar
-    - RestaurentList
-        - RestaurentCard
-            - Image
-            - Name
-            - Cusine
-            - Rating
-            - Price
-   Footer
-    - Links
-    - Copyrights
-*/
-
-const Title = () => (
-  <a href="/">
-    <img
-      alt="Food Adda"
-      src="https://lh5.googleusercontent.com/p/AF1QipOTrCuGu2abvY7S2nNZRwyGaPQdqs26Tk2VYD_U"
-      width="100px;"
-    />
-  </a>
-);
-
-const HeaderComponent = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const restaurentList = [
+export const restaurentList = [
   {
     type: "restaurant",
     data: {
@@ -1277,60 +1232,3 @@ const restaurentList = [
     subtype: "basic",
   },
 ];
-
-const burgerKing = {
-  name: "Pop's Kitchen",
-  image:
-    "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/thbdgubtwilo4wetlokl",
-  cusine: ["Indian", "Chinese"],
-  rating: "4.3 stars",
-};
-
-const RestaurentCard = ({
-  name,
-  cuisines,
-  lastMileTravel,
-  cloudinaryImageId,
-}) => {
-  // const { name, cuisines, lastMileTravel, cloudinaryImageId } = restaurent.data;
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{lastMileTravel} mins</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="restaurent-list">
-      {restaurentList.map((restaurent) => {
-        return <RestaurentCard {...restaurent.data} key={restaurent.data.id} />;
-      })}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <h2>Footer</h2>;
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      <HeaderComponent />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);

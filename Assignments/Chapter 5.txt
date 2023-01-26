@@ -1,0 +1,17 @@
+Q-1 - What is the difference between Named Export, Default Export and *as export ?
+Ans - Named Export is used when you have multiple exports in the same file.
+        e.g. export const ClassName/Variable
+      Default Export, you mostly used and we will use this when we want to 
+      export single export in the one file.
+        e.g. export default ClassName/Variable
+
+Q-2 - What is the importance of the config.js/constants.js file ?
+Ans - Main use of this file is reusability. We use this file to declare hard coded paths, strings.
+
+
+Q-3 - What are React Hooks ?
+Ans - React Hooks are special function or simplified APIs for state managements and other React features.
+
+
+Q-4 - Why do we need a useState Hook ?
+Ans - useState special hook for state management. We can define React local state variable using this useState hook.
