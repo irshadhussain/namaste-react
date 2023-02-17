@@ -1,0 +1,20 @@
+Theory Assignment:
+
+Q-1 - When and why do we need lazy ?
+Ans - When we have a very big app and we want make our app more responsive & better user expierence then we will use lazy loading/ Dynamic loading.
+      For the lazy loading we will split our app based on the features and logical parts. Its not good for small app.
+      For lazy loading we required "lazy" keyword from "react" library.
+
+Q-2 - What is suspense ?
+Ans - Suspense is a component from "react" library. Basically it is used to handle lazy loading. 
+
+Q-3 - Why we got this error: A component suspended while reponding to synchronous input. This will cause UI to be replaced witha loading indicator.
+      To fix, update that suspended should be wrapped with startTransition? How does suspense fix this error ?
+Ans -
+
+Q-4 - Advantage and disadvantage of using this code splitting pattern ?
+Ans - Its more suitable for larger app. It will provide better user expierence and more responsiveness to our app.
+
+Q-5 - When do we and why do we need suspense ?
+Ans - When we use lazy loading in the react component. component will take some time to be render so in mean time React will suspend the component & throw the error.
+      To hanlde this error and we will use Suspense.

@@ -2,16 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import RestaurentCard from "./RestaurentCard";
 import Shimmer from "./Shimmer";
-
-function filterData(searchInput, restaurents) {
-  const filterData = restaurents.filter((restaurent) => {
-    return restaurent?.data?.name
-      ?.toLowerCase()
-      .includes(searchInput.toLowerCase());
-  });
-
-  return filterData;
-}
+import { filterData } from "../components/utils/helper";
+import { GET_RESTAURENT_URL } from "../constants";
 
 const Body = () => {
   const [allRestaurents, setAllRestaurents] = useState([]);
@@ -24,9 +16,7 @@ const Body = () => {
   }, []);
 
   async function getRetaurents() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(GET_RESTAURENT_URL);
     const json = await data.json();
     setAllRestaurents(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurents(json?.data?.cards[2]?.data?.data?.cards);
@@ -34,14 +24,6 @@ const Body = () => {
 
   //no component render (Early return)
   if (!allRestaurents) return null;
-
-  // if (filteredRestaurents.length === 0) {
-  //   return <h1>No restaurent match your filter...!</h1>;
-  // }
-
-  //Conditional Rendering
-  //if restaurents are empty => Shimmer UI
-  //if restaurents has data => API
 
   return allRestaurents.length === 0 ? (
     <Shimmer />
