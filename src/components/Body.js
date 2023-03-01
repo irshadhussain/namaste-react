@@ -22,6 +22,7 @@ const Body = () => {
     setFilteredRestaurents(json?.data?.cards[2]?.data?.data?.cards);
   }
 
+  const searchBtn = { backgroundColor: "red" };
   //no component render (Early return)
   if (!allRestaurents) return null;
 
@@ -29,15 +30,16 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-3 bg-pink-50 my-2">
         <input
           type="text"
           placeholder="search"
           value={searchInput}
+          className="p-1 m-2 focus:bg-green-100"
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <button
-          className="search-btn"
+          className="p-2 py-1 m-2 bg-purple-500 text-white rounded-lg hover:bg-gray-700"
           onClick={() => {
             //filter the restaurents data
             const data = filterData(searchInput, allRestaurents);
@@ -49,7 +51,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="restaurent-list">
+      <div className="flex flex-wrap">
         {filteredRestaurents.length === 0 ? (
           <h1>No restaurent match your filter...!</h1>
         ) : (

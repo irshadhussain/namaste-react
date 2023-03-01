@@ -4,7 +4,7 @@ import Logo from "../assets/img/logo.png";
 import useOnline from "../components/utils/useOnline";
 const Title = () => (
   <a href="/">
-    <img alt="Food Adda" src={Logo} width="100px;" />
+    <img alt="Food Adda" src={Logo} className="h-28 px-2" />
   </a>
 );
 
@@ -12,24 +12,24 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
   return (
-    <div className="header">
+    <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-100 md:bg-blue-100">
       <Title />
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div>
+        <ul className="flex py-10">
+          <li className="px-2">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className="px-2">Cart</li>
+          <li className="px-2">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li>{isOnline ? "🟢" : "🔴"}</li>
+          <li className="px-2">{isOnline ? "🟢" : "🔴"}</li>
         </ul>
       </div>
       {isLoggedIn ? (
