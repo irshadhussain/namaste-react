@@ -1,0 +1,64 @@
+Q 1) Explore all the way of writting css -
+And) There are 6 ways of wrtting css in the React -
+     a) Normal css
+     b) Sass/scss
+     c) Inline css
+     d) Css component library - Material UI, Base UI, Chakra UI and Ant UI
+     e) Style component
+     f) Tailwind Css - this is a new way of writting css
+
+
+Q 2) How do we configure Tailwind ?
+And) The configuration of Tailwind depends on the bundler what we are using - 
+     For the Parcel bundler we have to do following -
+     a) Install Tailwind NPM package & PostCSS
+        npm install -D tailwindcss postcss
+    b) Initialize the Tailwind / create Tailwind config file => tailwind.config.js
+       npmx tailwindcss init => this command will create a new configuration file 
+
+    c) Set tailwind configuration setting
+        - We need to tail Tailwind which file need to consider or scan
+        content: [
+            "./src/**/*.{html,js,ts,jsx,tsx}",
+        ],
+
+    d) Configure PostCSS
+       - create a new PostCSS configuration file .postcssrc 
+       - PostCSS, tail our bundler to compile Tailwind classes 
+
+    e) Put 3 lines in the index.css
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        Tailwind also has different chunks so it devides his classes in above three categories
+
+
+Q 3) In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins) ?
+Ans) Content - The content section is where you configure the paths to all of your HTML templates, 
+     JS components, and any other files that contain Tailwind class names.
+
+     Theme - The theme section is where you define your color palette, fonts, type scale, border sizes, 
+     breakpoints — anything related to the visual design of your site.
+
+     The theme object contains keys for screens, colors, and spacing, as well as a key for each customizable core plugin.
+     The screens key allows you to customize the responsive breakpoints in your project.
+     The colors key allows you to customize the global color palette for your project.
+     The spacing key allows you to customize the global spacing and sizing scale for your project.
+
+    Extend: This is a part of Theme object and this will allows you to customize the default theme.
+    If you’d like to preserve the default values for a theme option but also add new values, add your 
+    extensions under the extend key in the theme section of your configuration file.
+     
+    Plugin - The plugins section allows you to register plugins with Tailwind that can be used 
+    to generate extra utilities, components, base styles, or custom variants.
+
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/typography'),
+        require('tailwindcss-children'),
+    ]
+
+Q 4) Why do we have .postcssrc file?
+Ans) PostCSS configuration file tails our bundler that we are using tailwind plugins and compile tailwind css to normal css    
